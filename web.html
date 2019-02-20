@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Primer Ejemplo Firebase</title>
+</head>
+
+<body>
+    <h1 id="holaMundo"> </h1>
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+
+        var config = {
+            apiKey: "AIzaSyBWZQlI9-1coK1l6rF3aJ8VNn4JtsY4HxI",
+            authDomain: "alertasweb-3b0d8.firebaseapp.com",
+            databaseURL: "https://alertasweb-3b0d8.firebaseio.com",
+            storageBucket: "alertasweb-3b0d8.appspot.com",
+            messagingSenderId: "413545292734"
+        };
+
+        firebase.initializeApp(config);
+        var holaMundo = document.getElementById('holaMundo');
+        var dbRef = firebase.database().ref().child('text');
+        dbRef.on('value', snap => holaMundo.innerText = snap.val());
+    </script>
+</body>
+
+</html>
